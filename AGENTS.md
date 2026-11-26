@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Architecture
+- Feature-based modules live in `src/features/<feature>/` (components, hooks, services, types) and expose only `index.ts`; why: isolated, testable features.
+- Cross-feature UI/utilities go in `src/shared/`, app constants in `src/config/`; features never import each other's internals.
+- The app is Arabic-first: `<html lang="ar" dir="rtl">`; use logical Tailwind utilities (ms/me/ps/pe, start/end) instead of left/right.
